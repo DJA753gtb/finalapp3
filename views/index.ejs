@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<%- include('./partials/head.ejs') %>
+
+
+
+  <body>
+
+    <%- include('./partials/nav.ejs') %>
+
+      <div class="container-fluid pt-5"
+        style="background-image: url('blog1.jpg' ); background-repeat: no-repeat ;  background-attachment: fixed; background-size: 100% 100%;">
+
+        <div class="row row-cols-1 row-cols-md-2">
+
+          <% if (blogs.length===0){ %>
+
+            <P> No Blogs Yet.....</p>
+
+            <% } else { %>
+
+              <% blogs.forEach(blog=>{ %>
+
+
+                <div class="col mb-5">
+                  <div class="card" style="background-color: transparent; border-color: turquoise;">
+                    <div class="card-body">
+                      <h5 class="card-title">
+                        <%= blog.heading%>
+                      </h5>
+                      <p class="card-text">
+                        <%= blog.body %>
+                      </p>
+                      <a href="/blog/<%= blog._id%>" class="">Read More</a>
+                    </div>
+                  </div>
+                </div>
+
+
+                <% }) %>
+
+
+                  <% } %>
+
+
+
+        </div>
+      </div>
+
+
+
+
+
+      <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script> -->
+  </body>
+
+</html>
